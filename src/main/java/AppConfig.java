@@ -2,9 +2,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import java.util.concurrent.Callable;
+
 @Configuration
 public class AppConfig {
- 
+    @Bean(name = "cat")
+    @Scope("prototype")
+    public Cat getCat(){
+        return new Cat();
+    }
     @Bean(name="helloworld")
     public HelloWorld getHelloWorld() {
         HelloWorld helloWorld = new HelloWorld();
